@@ -1,4 +1,6 @@
 <script>
+	import ContactCard from "./ContactCard.svelte";
+
 	export let name = 'Let';
 	export let age = 22;
 
@@ -36,6 +38,13 @@
 <button on:click="{incrementAge}">Change Age</button>
 <!-- <button on:click="{changeName}">Change Name</button> -->
 
-<input type="text" value="{name}" on:input={nameInput}>
+<!-- <input type="text" value="{name}" on:input={nameInput}> -->
 
 <!-- by default, the data flow in svelte is unidirectional, which means here we're outputting data -->
+
+<!-- we can use the shortcut bind instead of on:event to update the value -->
+
+<input type="text" bind:value="{name}" on:input={nameInput}>
+<!-- it will also and automatically change the name if it's changed -->
+
+<ContactCard />
